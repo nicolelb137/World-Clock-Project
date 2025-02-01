@@ -22,6 +22,18 @@ function updateTime() {
       "h:mm:ss [<small>]A[</small>]"
     );
   }
+
+  let sydneyElement = document.querySelector("#sydney");
+  if (sydneyElement) {
+    let sydneyDateElement = sydneyElement.querySelector(".date");
+    let sydneyTimeElement = sydneyElement.querySelector(".time");
+    let sydneyTime = moment().tz("Australia/Sydney");
+
+    sydneyDateElement.innerHTML = sydneyTime.format("MMMM Do YYYY");
+    sydneyTimeElement.innerHTML = sydneyTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
 }
 
 function updateCity(event) {
@@ -42,8 +54,9 @@ function updateCity(event) {
       <div class="time">
         ${cityTime.format("h:mm:ss")} <small>${cityTime.format("A")}</small>
       </div>
-    </div>
-`;
+      </div>
+      <a href=" /">All Cities</a>
+      `;
 }
 
 updateTime();
